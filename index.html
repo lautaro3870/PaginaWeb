@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $("form[name='registracion']").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        minlength: 5,
+                        email: true
+                    },
+                    contra: {
+                        required: true,
+                        minlength: 5
+                    },
+                    nombre: "required",
+                    apellido: "required",
+                    telefono: {
+                        required: true,
+                        digits: true,
+                        minlength: 8,
+                        maxlength: 13
+                    },
+                    direccion: "required",
+                    ciudad: "required",
+                    codigo: {
+                        required: true,
+                        digits: true,
+                        maxlength: 5
+                    },
+
+                    checkBox: {
+                        required: true,
+                        maxlength: 2
+                    },
+                    radios: {
+                        required: true
+                    },
+                    combo: {
+                        required: true
+                    },
+                    txtFecha: {
+                        required: true
+                    },
+                },
+                messages: {
+                    email: "Ingrese un mail valido",
+                    contra: "Ingrese una contraseña valida",
+                    nombre: "Ingrese un nombre",
+                    apellido: "Ingrese un apellido",
+                    telefono: "Ingrese un telefono valido",
+                    direccion: "Ingrese una direccion",
+                    ciudad: "Ingrese una ciudad",
+                    codigo: "Ingrese un codigo",
+                    checkBox: "Acepte los terminos",
+                    radios: "Seleccione un RadioButton",
+                    combo: "Seleccione una provincia",
+                    txtFecha: "Seleccione una fecha"
+
+                },
+                errorPlacement: function(error, element) {
+                    if (element.attr("name") == "radios") {
+                        error.insertAfter("#aca");
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                /*
+                                errorPlacement: function(error, element) {
+                                    if (element.attr("name") == "checkBox") {
+                                        error.insertAfter("#aca2");
+                                    } else {
+                                        error.insertAfter(element);
+                                    }
+                                },
+                */
+
+
+                submitHandler: function(form) {
+                    form.submit();
+                }
+
+            });
+        });
+    </script>
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+
+    <title>Practica Parcial</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="principal2.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pagina.html">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <form name="registracion" id="form">
+            <br><br>
+            <h1>Formulario de Ingreso</h1>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" name="contra" placeholder="Password">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputEmail4">Apellido</label>
+                    <input type="text" class="form-control" id="inputApellido" name="apellido" placeholder="Apellido">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Telefono</label>
+                    <input type="number" class="form-control" id="inputTelefono" name="telefono" placeholder="Telefono">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputPassword4">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCiudad" name="ciudad" placeholder="Ciudad">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="inputDireccion">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Provincia</label>
+                    <select id="combo" class="form-control" name="combo" required>
+                        <option selected value="">Opciones</option>
+                        <option value="uno">Rio Negro</option>
+                        <option value="dos">Cordoba</option>
+                        <option value="tres">Buenos Aires</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Codigo Postal</label>
+                    <input type="text" class="form-control" name="codigo" id="inputPostal">
+                </div>
+                <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <label for="">Fecha de nacimiento:</label>
+                    <input type="date" name="txtFecha" id="txtFecha" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check" id="aca2">
+                    <input class="form-check-input" type="checkbox" name="checkBox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Terminos y Condiciones
+                    </label>
+                </div>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radios" id="exampleRadios1" value="option1">
+                <label class="form-check-label" for="exampleRadios1">
+                    Casa
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="radios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Departamento
+                </label>
+            </div>
+            <div class="form-check disabled" id="aca">
+                <input class="form-check-input" type="radio" name="radios" id="exampleRadios3" value="option3">
+                <label class="form-check-label" for="exampleRadios3">
+                    Otros
+                </label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" onclick="grabar()">Ingresar</button>
+            <button type="button" class="btn btn-primary" onclick="this.form.reset()">Resetear</button>
+
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="jquery.validate.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function grabar() {
+            if ($('#form').valid()) {
+                swal.fire("Validacion correcta");
+            } else {
+                swal.fire("Validacion no correcta");
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
